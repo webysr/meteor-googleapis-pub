@@ -14,7 +14,7 @@ Npm.depends({
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
   api.use('ecmascript');
-  api.use('webysr:googleapis-oauth2-client');
+  api.use('webysr:googleapis-oauth2-client@1.0.0');
 
   api.addFiles(['server/publishGoogleAPI.js'], 'server');
 });
