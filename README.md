@@ -1,5 +1,22 @@
-# Google APIs Drive Publications
+# Google API Publications for Meteor
 
-## npm dependencies
+`meteor add webysr:googleapis-pub`
 
-`npm install --save googleapis`
+### Example Usage
+
+#### On the server:
+
+```javascript
+Meteor.publishGoogleAPI('drive.files.list');
+
+```
+
+#### On the client:
+```javascript
+let sub = Meteor.subscribe('drive.files.list', {
+            orderBy: 'title',
+            maxResults: 10,
+            q: `'root' in parents`,
+            fields: "items(id,defaultOpenWithLink,thumbnailLink,title)"
+        });
+```
