@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'googleapis-pub-drive',
+  name: 'webysr:googleapis-pub',
   version: '1.0.0',
   // Brief, one-line summary of the package.
   summary: '',
@@ -12,13 +12,15 @@ Package.describe({
 
 Npm.depends({
   googleapis: "2.1.7",
+  lodash: "4.6.1"
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.3-beta.11');
-  api.use('ecmascript@0.4.0-beta.11');
+  api.versionsFrom('1.2.1');
+  api.use('ecmascript');
+  api.use('webysr:googleapis-oauth2-client');
 
-  api.addFiles(['server/server.js'], 'server');
+  api.addFiles(['server/publishGoogleAPI.js'], 'server');
 });
 
 Package.onTest(function(api) {
