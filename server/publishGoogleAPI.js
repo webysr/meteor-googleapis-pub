@@ -7,6 +7,7 @@ const getAPIByName = (apiName) => {
 
   switch(apiName.toLowerCase()) {
     case 'drive': return GoogleAPI.drive('v2');
+    case 'calendar': return GoogleAPI.calendar('v3');
     default: break;
   }
 };
@@ -31,6 +32,7 @@ Meteor.publishGoogleAPI = function(apiMethodIdentifier) {
       console.log(`Poll for ${apiMethodIdentifier}...`);
 
       // TODO check if auth was provided and do not override if so
+      params = params || {};
       params.auth = oAuth2Client.get();
       let response = callAPIMethod(params);
 
